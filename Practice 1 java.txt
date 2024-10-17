@@ -1,0 +1,81 @@
+1)
+public class Main {
+    public static void main(String[] args) {
+        int intVar = 10;
+        double doubleVar = 5.5;
+        boolean boolVar1 = true;
+        boolean boolVar2 = false;
+        char charVar = 'A';
+        
+        int sum = intVar + 5; // Сложение
+        double division = doubleVar / 2; // Деление
+        int multiplication = intVar * 3; // Умножение
+        int modulus = intVar % 3; // Остаток от деления
+        
+        boolean andOperation = boolVar1 && boolVar2; // Логическое И
+        boolean orOperation = boolVar1 || boolVar2; // Логическое ИЛИ
+        boolean notOperation = !boolVar1; // Логическое НЕ
+
+        System.out.println("Арифметические операции:");
+        System.out.println("Сложение: " + sum);
+        System.out.println("Деление: " + division);
+        System.out.println("Умножение: " + multiplication);
+        System.out.println("Остаток от деления: " + modulus);
+        
+        System.out.println("\nЛогические операции:");
+        System.out.println("Логическое И: " + andOperation);
+        System.out.println("Логическое ИЛИ: " + orOperation);
+        System.out.println("Логическое НЕ: " + notOperation);
+        
+        System.out.println("\nСимвольная переменная:");
+        System.out.println("Символ: " + charVar);
+    }
+}
+
+
+2)
+import java.util.Scanner;
+
+public class PrimeFactorization {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите число для разложения на простые множители: ");
+        int number = scanner.nextInt();
+
+        System.out.println("Простые множители числа " + number + ":");
+        factorize(number);
+    }
+
+    public static void factorize(int number) {
+        for (int i = 2; i <= number; i++) {
+            while (number % i == 0) {
+                System.out.print(i + " ");
+                number /= i;
+            }
+        }
+        System.out.println(); 
+    }
+}
+
+
+3)
+import java.util.Scanner; 
+
+public class DiscountCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Введите исходную цену товара: ");
+        double originalPrice = scanner.nextDouble();
+
+        System.out.print("Введите процент скидки: ");
+        double discountPercent = scanner.nextDouble();
+
+        double discountAmount = originalPrice * (discountPercent / 100);
+
+        double discountedPrice = originalPrice - discountAmount;
+
+        System.out.println("Цена товара со скидкой: " + discountedPrice);
+    }
+}
+

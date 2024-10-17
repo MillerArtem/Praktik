@@ -1,0 +1,115 @@
+1)
+public class SumExample {
+    public static void main(String[] args) {
+        int result1 = sum(5, 10);
+        System.out.println("Сумма 5 и 10: " + result1);
+
+        int result2 = sum(-3, 7);
+        System.out.println("Сумма -3 и 7: " + result2);
+
+        int result3 = sum(100, 200);
+        System.out.println("Сумма 100 и 200: " + result3);
+
+        int result4 = sum(0, 0);
+        System.out.println("Сумма 0 и 0: " + result4);
+    }
+
+    public static int sum(int a, int b) {
+        return a + b;
+    }
+}
+
+2)
+public class GreetingExample {
+    public static void main(String[] args) {
+        printGreeting("Maks");
+        printGreeting("Sasha");
+        printGreeting("Anton");
+    }
+
+    public static void printGreeting(String name) {
+        System.out.println("Hello, " + name + "!");
+    }
+}
+
+3)
+public class MaxElementExample {
+    public static void main(String[] args) {
+        int[] numbers1 = {1, 3, 7, 0, 5};
+        int max1 = findMax(numbers1);
+        System.out.println("Максимальный элемент массива [1, 3, 7, 0, 5]: " + max1);
+
+        int[] numbers2 = {-10, -3, -50, -1};
+        int max2 = findMax(numbers2);
+        System.out.println("Максимальный элемент массива [-10, -3, -50, -1]: " + max2);
+
+        int[] numbers3 = {100, 200, 150, 300, 250};
+        int max3 = findMax(numbers3);
+        System.out.println("Максимальный элемент массива [100, 200, 150, 300, 250]: " + max3);
+    }
+
+    public static int findMax(int[] numbers) {
+        int max = numbers[0]; 
+        for (int i = 1; i < numbers.length; i++) {
+            if (numbers[i] > max) {
+                max = numbers[i]; 
+            }
+        }
+        return max;
+    }
+}
+
+4)
+public class EvenCheckExample {
+    public static void main(String[] args) {
+        System.out.println("10 четное? " + isEven(10)); // true
+        System.out.println("15 четное? " + isEven(15)); // false
+        System.out.println("-4 четное? " + isEven(-4)); // true
+        System.out.println("-7 четное? " + isEven(-7)); // false
+        System.out.println("0 четное? " + isEven(0)); // true
+    }
+
+    public static boolean isEven(int number) {
+        return number % 2 == 0; 
+    }
+}
+
+5)
+public class AverageCalculator {
+    public static void main(String[] args) {
+        double average1 = calculateAverage(5.5, 10.2, 7.8);
+        System.out.println("Среднее арифметическое (5.5, 10.2, 7.8): " + average1);
+
+        double average2 = calculateAverage(-3.0, 4.5, 2.5);
+        System.out.println("Среднее арифметическое (-3.0, 4.5, 2.5): " + average2);
+
+        double average3 = calculateAverage(0.0, 0.0, 0.0);
+        System.out.println("Среднее арифметическое (0.0, 0.0, 0.0): " + average3);
+
+        double average4 = calculateAverage(3.6, 2.4, 1.0);
+        System.out.println("Среднее арифметическое (3.6, 2.4, 1.0): " + average4);
+    }
+
+    public static double calculateAverage(double num1, double num2, double num3) {
+        return (num1 + num2 + num3) / 3; 
+    }
+}
+
+6)
+public class MultiplyExample {
+    public static void main(String[] args) {
+        int product1 = multiply(5, 10);
+        System.out.println("Произведение 5 и 10: " + product1);
+
+        int product2 = multiply(2, 3, 4);
+        System.out.println("Произведение 2, 3 и 4: " + product2);
+    }
+
+    public static int multiply(int a, int b) {
+        return a * b; 
+    }
+
+    public static int multiply(int a, int b, int c) {
+        return a * b * c; 
+    }
+}

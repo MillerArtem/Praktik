@@ -1,0 +1,88 @@
+1)
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class TextAnalyzer {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Введите текст: ");
+        String inputText = scanner.nextLine();
+        
+        String[] words = inputText.trim().split("\\s+");
+        int wordCount = words.length;
+        System.out.println("Количество слов в тексте: " + wordCount);
+        
+        String longestWord = findLongestWord(words);
+        System.out.println("Самое длинное слово: " + longestWord);
+
+        HashMap<Character, Integer> charCountMap = countCharacterOccurrences(inputText);
+        System.out.println("Количество вхождений каждого символа:");
+        for (char c : charCountMap.keySet()) {
+            System.out.println("'" + c + "' - " + charCountMap.get(c));
+        }
+        
+        String reversedText = new StringBuilder(inputText).reverse().toString();
+        System.out.println("Текст в обратном порядке: " + reversedText);
+    }
+
+    private static String findLongestWord(String[] words) {
+        String longestWord = "";
+        for (String word : words) {
+            if (word.length() > longestWord.length()) {
+                longestWord = word;
+            }
+        }
+        return longestWord;
+    }
+
+    private static HashMap<Character, Integer> countCharacterOccurrences(String text) {
+        HashMap<Character, Integer> charCountMap = new HashMap<>();
+        for (char c : text.toCharArray()) {
+            charCountMap.put(c, charCountMap.getOrDefault(c, 0) + 1);
+        }
+        return charCountMap;
+    }
+}
+
+
+2)
+import java.util.HashSet;
+import java.util.Scanner;
+
+public class CityGame {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        HashSet<String> usedWords = new HashSet<>(); 
+
+        String lastWord = ""; 
+        int currentPlayer = 1; 
+
+        System.out.println("Игра началась! Игроки поочередно вводят слова.");
+
+        while (true) {
+            System.out.print("Игрок " + currentPlayer + ", введите слово: ");
+            String currentWord = scanner.nextLine().trim().toLowerCase();
+
+            if (currentWord.isEmpty()) {
+                System.out.println("Вы ввели пустую строку. Попробуйте снова.");
+                continue;
+            }
+
+            if (usedWords.contains(currentWord)) {
+                System.out.println("Это слово уже было использовано. Попробуйте другое.");
+                continue;
+            }
+
+            if (!lastWord.isEmpty() && lastWord.charAt(lastWord.length() - 1) != currentWord.charAt(0)) {
+                System.out.println("Слово должно начинаться с буквы '" + lastWord.charAt(lastWord.length() - 1) + "'. Попробуйте ещё раз.");
+                continue;
+            }
+
+            usedWords.add(currentWord);
+            lastWord = currentWord;
+
+            currentPlayer = (currentPlayer == 1) ? 2 : 1;
+        }
+    }
+}
